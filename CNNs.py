@@ -45,7 +45,6 @@ class ResNet152(nn.Module):
         if(self.noisy_layer == 1):
             if(self.sub_noisy_layer == 1):
                 x_copy = x.detach()
-                x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
             for temp_sub in range(len(self.model.layer1)):
                 if( self.sub_noisy_layer == temp_sub+1):
                     if(self.noise_type == 'linear'):
@@ -59,13 +58,11 @@ class ResNet152(nn.Module):
                 else:
                     x = self.model.layer1[temp_sub](x)
                     x_copy = x.detach()
-                    x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
         else:
             x = self.model.layer1(x)
         if(self.noisy_layer == 2):
             if(self.sub_noisy_layer == 1):
                 x_copy = x.detach()
-                x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
             for temp_sub in range(len(self.model.layer2)):
                 if( self.sub_noisy_layer == temp_sub+1):
                     if(self.noise_type == 'linear'):
@@ -79,13 +76,11 @@ class ResNet152(nn.Module):
                 else:
                     x = self.model.layer2[temp_sub](x)
                     x_copy = x.detach()
-                    x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
         else:
             x = self.model.layer2(x)
         if(self.noisy_layer == 3):
             if(self.sub_noisy_layer == 1):
                 x_copy = x.detach()
-                x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
             for temp_sub in range(len(self.model.layer3)):
                 if( self.sub_noisy_layer == temp_sub+1):
                     if(self.noise_type == 'linear'):
@@ -99,13 +94,11 @@ class ResNet152(nn.Module):
                 else:
                     x = self.model.layer3[temp_sub](x)
                     x_copy = x.detach()
-                    x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
         else:
             x = self.model.layer3(x)
         if(self.noisy_layer == 4):
             if(self.sub_noisy_layer == 1):
                 x_copy = x.detach()
-                x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
             for temp_sub in range(len(self.model.layer4)):
                 if( self.sub_noisy_layer == temp_sub+1):
                     if(self.noise_type == 'linear'):
@@ -119,7 +112,6 @@ class ResNet152(nn.Module):
                 else:
                     x = self.model.layer4[temp_sub](x)
                     x_copy = x.detach()
-                    x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
         else:
             x = self.model.layer4(x)
         x = self.model.avgpool(x)
@@ -151,7 +143,6 @@ class ResNet101(nn.Module):
         if(self.noisy_layer == 1):
             if(self.sub_noisy_layer == 1):
                 x_copy = x.detach()
-                x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
             for temp_sub in range(len(self.model.layer1)):
                 if( self.sub_noisy_layer == temp_sub+1):
                     if(self.noise_type == 'linear'):
@@ -165,13 +156,11 @@ class ResNet101(nn.Module):
                 else:
                     x = self.model.layer1[temp_sub](x)
                     x_copy = x.detach()
-                    x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
         else:
             x = self.model.layer1(x)
         if(self.noisy_layer == 2):
             if(self.sub_noisy_layer == 1):
                 x_copy = x.detach()
-                x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
             for temp_sub in range(len(self.model.layer2)):
                 if( self.sub_noisy_layer == temp_sub+1):
                     if(self.noise_type == 'linear'):
@@ -185,13 +174,11 @@ class ResNet101(nn.Module):
                 else:
                     x = self.model.layer2[temp_sub](x)
                     x_copy = x.detach()
-                    x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
         else:
             x = self.model.layer2(x)
         if(self.noisy_layer == 3):
             if(self.sub_noisy_layer == 1):
                 x_copy = x.detach()
-                x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
             for temp_sub in range(len(self.model.layer3)):
                 if( self.sub_noisy_layer == temp_sub+1):
                     if(self.noise_type == 'linear'):
@@ -205,13 +192,11 @@ class ResNet101(nn.Module):
                 else:
                     x = self.model.layer3[temp_sub](x)
                     x_copy = x.detach()
-                    x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
         else:
             x = self.model.layer3(x)
         if(self.noisy_layer == 4):
             if(self.sub_noisy_layer == 1):
                 x_copy = x.detach()
-                x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
             for temp_sub in range(len(self.model.layer4)):
                 if( self.sub_noisy_layer == temp_sub+1):
                     if(self.noise_type == 'linear'):
@@ -225,7 +210,6 @@ class ResNet101(nn.Module):
                 else:
                     x = self.model.layer4[temp_sub](x)
                     x_copy = x.detach()
-                    x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
         else:
             x = self.model.layer4(x)
         x = self.model.avgpool(x)
@@ -257,7 +241,6 @@ class ResNet50(nn.Module):
         if(self.noisy_layer == 1):
             if(self.sub_noisy_layer == 1):
                 x_copy = x.detach()
-                x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
             for temp_sub in range(len(self.model.layer1)):
                 if( self.sub_noisy_layer == temp_sub+1):
                     if(self.noise_type == 'linear'):
@@ -271,13 +254,11 @@ class ResNet50(nn.Module):
                 else:
                     x = self.model.layer1[temp_sub](x)
                     x_copy = x.detach()
-                    x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
         else:
             x = self.model.layer1(x)
         if(self.noisy_layer == 2):
             if(self.sub_noisy_layer == 1):
                 x_copy = x.detach()
-                x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
             for temp_sub in range(len(self.model.layer2)):
                 if( self.sub_noisy_layer == temp_sub+1):
                     if(self.noise_type == 'linear'):
@@ -291,13 +272,11 @@ class ResNet50(nn.Module):
                 else:
                     x = self.model.layer2[temp_sub](x)
                     x_copy = x.detach()
-                    x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
         else:
             x = self.model.layer2(x)
         if(self.noisy_layer == 3):
             if(self.sub_noisy_layer == 1):
                 x_copy = x.detach()
-                x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
             for temp_sub in range(len(self.model.layer3)):
                 if( self.sub_noisy_layer == temp_sub+1):
                     if(self.noise_type == 'linear'):
@@ -311,13 +290,11 @@ class ResNet50(nn.Module):
                 else:
                     x = self.model.layer3[temp_sub](x)
                     x_copy = x.detach()
-                    x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
         else:
             x = self.model.layer3(x)
         if(self.noisy_layer == 4):
             if(self.sub_noisy_layer == 1):
                 x_copy = x.detach()
-                x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
             for temp_sub in range(len(self.model.layer4)):
                 if( self.sub_noisy_layer == temp_sub+1):
                     if(self.noise_type == 'linear'):
@@ -331,7 +308,6 @@ class ResNet50(nn.Module):
                 else:
                     x = self.model.layer4[temp_sub](x)
                     x_copy = x.detach()
-                    x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
         else:
             x = self.model.layer4(x)
         x = self.model.avgpool(x)
@@ -363,7 +339,6 @@ class ResNet34(nn.Module):
         if(self.noisy_layer == 1):
             if(self.sub_noisy_layer == 1):
                 x_copy = x.detach()
-                x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
             for temp_sub in range(len(self.model.layer1)):
                 if( self.sub_noisy_layer == temp_sub+1):
                     if(self.noise_type == 'linear'):
@@ -377,13 +352,11 @@ class ResNet34(nn.Module):
                 else:
                     x = self.model.layer1[temp_sub](x)
                     x_copy = x.detach()
-                    x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
         else:
             x = self.model.layer1(x)
         if(self.noisy_layer == 2):
             if(self.sub_noisy_layer == 1):
                 x_copy = x.detach()
-                x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
             for temp_sub in range(len(self.model.layer2)):
                 if( self.sub_noisy_layer == temp_sub+1):
                     if(self.noise_type == 'linear'):
@@ -397,13 +370,11 @@ class ResNet34(nn.Module):
                 else:
                     x = self.model.layer2[temp_sub](x)
                     x_copy = x.detach()
-                    x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
         else:
             x = self.model.layer2(x)
         if(self.noisy_layer == 3):
             if(self.sub_noisy_layer == 1):
                 x_copy = x.detach()
-                x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
             for temp_sub in range(len(self.model.layer3)):
                 if( self.sub_noisy_layer == temp_sub+1):
                     if(self.noise_type == 'linear'):
@@ -417,13 +388,11 @@ class ResNet34(nn.Module):
                 else:
                     x = self.model.layer3[temp_sub](x)
                     x_copy = x.detach()
-                    x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
         else:
             x = self.model.layer3(x)
         if(self.noisy_layer == 4):
             if(self.sub_noisy_layer == 1):
                 x_copy = x.detach()
-                x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
             for temp_sub in range(len(self.model.layer4)):
                 if( self.sub_noisy_layer == temp_sub+1):
                     if(self.noise_type == 'linear2'):
@@ -437,7 +406,6 @@ class ResNet34(nn.Module):
                 else:
                     x = self.model.layer4[temp_sub](x)
                     x_copy = x.detach()
-                    x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
         else:
             x = self.model.layer4(x)
         x = self.model.avgpool(x)
@@ -469,7 +437,6 @@ class ResNet18(nn.Module):
         if(self.noisy_layer == 1):
             if(self.sub_noisy_layer == 1):
                 x_copy = x.detach()
-                x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
             for temp_sub in range(len(self.model.layer1)):
                 if( self.sub_noisy_layer == temp_sub+1):
                     if(self.noise_type == 'linear'):
@@ -483,13 +450,11 @@ class ResNet18(nn.Module):
                 else:
                     x = self.model.layer1[temp_sub](x)
                     x_copy = x.detach()
-                    x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
         else:
             x = self.model.layer1(x)
         if(self.noisy_layer == 2):
             if(self.sub_noisy_layer == 1):
                 x_copy = x.detach()
-                x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
             for temp_sub in range(len(self.model.layer2)):
                 if( self.sub_noisy_layer == temp_sub+1):
                     if(self.noise_type == 'linear'):
@@ -503,13 +468,11 @@ class ResNet18(nn.Module):
                 else:
                     x = self.model.layer2[temp_sub](x)
                     x_copy = x.detach()
-                    x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
         else:
             x = self.model.layer2(x)
         if(self.noisy_layer == 3):
             if(self.sub_noisy_layer == 1):
                 x_copy = x.detach()
-                x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
             for temp_sub in range(len(self.model.layer3)):
                 if( self.sub_noisy_layer == temp_sub+1):
                     if(self.noise_type == 'linear'):
@@ -523,13 +486,11 @@ class ResNet18(nn.Module):
                 else:
                     x = self.model.layer3[temp_sub](x)
                     x_copy = x.detach()
-                    x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
         else:
             x = self.model.layer3(x)
         if(self.noisy_layer == 4):
             if(self.sub_noisy_layer == 1):
                 x_copy = x.clone()
-                x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
             for temp_sub in range(len(self.model.layer4)):
                 if( self.sub_noisy_layer == temp_sub+1):
                     if(self.noise_type == 'linear'):
@@ -543,7 +504,6 @@ class ResNet18(nn.Module):
                 else:
                     x = self.model.layer4[temp_sub](x)
                     x_copy = x.detach()
-                    x_copy = torch.cat( (x_copy[1:,:,:,:], x_copy[0,:,:,:].unsqueeze(0)),dim=0 )
         else:
             x = self.model.layer4(x)
         x = self.model.avgpool(x)
