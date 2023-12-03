@@ -27,10 +27,8 @@ parser.add_argument('--class_num', default= 200, type = int, help='class numbers
 parser.add_argument('--datasets', default= 'TinyImageNet', type = str, help='what dataset to use')
 parser.add_argument('--resnet', default= 'resnet34', type = str, help='resnet architecture')
 parser.add_argument('--pretrain', default= True, type = bool, help='use pretrain model or not')
-parser.add_argument('--tinyImagenet_path', default= '/media/shawey/cf54ec8b-5d7c-4924-b13e-4ece5630451c/CP_ViT_TinyImageNet/TinyImageNet/', type = str, help='tiny imagenet path')
-parser.add_argument('--Imagenet_path', default= '/media/shawey/cf54ec8b-5d7c-4924-b13e-4ece5630451c/CP_ViT_ImageNet/ImageNet1K/', type = str, help='imagenet path')
-#/home/xiaow/AAAI23/CP_ViT_TinyImageNet/TinyImageNet/
-#/media/shawey/cf54ec8b-5d7c-4924-b13e-4ece5630451c/CP_ViT_ImageNet/ImageNet1K/
+parser.add_argument('--tinyImagenet_path', default= '', type = str, help='tiny imagenet path')
+parser.add_argument('--Imagenet_path', default= '', type = str, help='imagenet path')
 parser.add_argument('--gpu_id', default= '1', type = str, help='select gpus')
 #ResNet18 [2,2,2,2]
 #ResNet34 [3,4,6,3]
@@ -40,13 +38,5 @@ parser.add_argument('--gpu_id', default= '1', type = str, help='select gpus')
 #sub_noisy_layer range from [1,n], n is the number of convs noise_layer, e.g., if ResNet152, noise_layer = 3, 36 sub layers, then n = 36.
 args = parser.parse_args()
 
-'''
-os.environ['CUDA_VISIBLE_DEVICES'] = args.gpu_id
-cuda = True if torch.cuda.is_available() else False
-device = torch.device('cuda' if cuda else 'cpu')
-#设置GPU
-device = torch.device('cuda:1' if torch.cuda.is_available() else 'cpu')
-#device = torch.device('cpu')
-'''
 
 
